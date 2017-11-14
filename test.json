@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "name": "John Smith",
+      "courses": [
+        {
+          "mark": 88,
+          "courseName": "������ ����������",
+          "teacher": "��������"
+        },
+        {
+          "mark": 89,
+          "courseName": "������ ���������� ������",
+          "teacher": "�������� ��������"
+        }
+      ]
+    },
+    {
+      "name": "John",
+      "courses": [
+        {
+          "mark": 26,
+          "courseName": "������ ����������",
+          "teacher": "��������"
+        },
+        {
+          "mark": 8,
+          "courseName": "������ ���������� ������",
+          "teacher": "�������� ��������"
+        }
+      ]
+    }
+  ]
+}

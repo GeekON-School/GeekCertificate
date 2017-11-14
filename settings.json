@@ -1,0 +1,26 @@
+{
+  "path": "sert.jpg",
+  "name": {
+    "x": 400,
+    "y": 400
+  },
+  "course": {
+    "x": 400,
+    "y": 500
+  },
+  "mark": {
+    "x": 500,
+    "y": 500
+  },
+  "teacher": {
+    "x": 500,
+    "y": 600
+  },
+  "font": "arial.ttf",
+  "font_size": 16,
+  "color": {
+    "r": 0,
+    "g": 0,
+    "b": 0
+  }
+}
