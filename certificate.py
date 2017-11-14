@@ -6,7 +6,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 class CertificateCreator(object):
-	def __init__(self, dataJson=None, settingsJson=None, qr = None):
+
+	def __init__(self, dataJson, settingsJson=None, qr = None):
 		self.setDefault()
 		self.__data = None
 		if (dataJson is not None):
@@ -18,10 +19,17 @@ class CertificateCreator(object):
 
 
 	def setData(self, dataJson):
+		'''
+		Sets data file for this object
+		@param dataJson: filename
+		'''
 		with open(dataJson) as dataJson:
 			self.__data = json.load(dataJson)
 
 	def setQr (self, addQr):
+		'''
+		@param addQr: True to create qr on each certificate
+		'''
 		if (addQr):
 			self.__qr = True
 		else:
@@ -29,6 +37,10 @@ class CertificateCreator(object):
 
 
 	def setSettings(self, settingsJson):
+		'''
+		Sets all params from settings file instead of default params
+		@param settingsJson settings filename
+		'''
 		with open(settingsJson) as settingsFile:
 			settings = json.load(settingsFile)
 			self.__templatePath = settings['path']
@@ -47,6 +59,9 @@ class CertificateCreator(object):
 				self.__qrXY=(settings['qr']['x'],settings['qr']['y'])
 
 	def setDefault(self):
+		'''
+		Sets all params to default
+		'''
 		self.__templatePath = 'base_template.jpg'
 		self.__nameXY = (400, 410)
 		self.__courseXY = (400, 550)
@@ -62,6 +77,10 @@ class CertificateCreator(object):
 					      "images")
 
 	def createCertificates(self):
+		'''
+		Creates certificates images in current folder (if provided) based on the class values. Also creates
+		qr codes with name, course and mark if __qr = True
+		'''
 		if (self.__isDataInizialised()):
 			for student in self.__data['students']:
 				for course in student['courses']:
@@ -94,13 +113,11 @@ class CertificateCreator(object):
 			raise Exception("Data file is not provided")
 
 	def __isDataInizialised(self):
+		'''
+		Checking if object has data file
+		'''
 		if (self.__data is not None):
 			return True
 		else:
 			return False
 
-	def __isBaseTemplate(self):
-		if (self.__templatePath is not None):
-			return False
-		else:
-			return True
