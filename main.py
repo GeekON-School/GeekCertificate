@@ -2,9 +2,10 @@
 
 import certificate
 
-cert = certificate.CertificateCreator('test.json', 'settings.json')
+cert = certificate.CertificateCreator()
 
-# cert.setSettings('settings.json')
-# cert.setData('test.json')
+cert.setSettings('settings.json')
+cert.setData('test.json')
+cert.setQr(True)
 
 cert.createCertificates()

@@ -1,20 +1,20 @@
 {
   "path": "sert.jpg",
   "name": {
-    "x": 400,
-    "y": 400
+    "x": 200,
+    "y": 200
   },
   "course": {
-    "x": 400,
-    "y": 500
+    "x": 200,
+    "y": 300
   },
   "mark": {
-    "x": 500,
-    "y": 500
+    "x": 300,
+    "y": 300
   },
   "teacher": {
-    "x": 500,
-    "y": 600
+    "x": 200,
+    "y": 400
   },
   "font": "arial.ttf",
   "font_size": 16,
@@ -23,5 +23,10 @@
     "g": 0,
     "b": 0
   },
-  "output_folder" : "test"
+  "output_folder" : 0,
+  "qr_size": 160,
+  "qr":{
+    "x":0,
+    "y":0
+}
 }
