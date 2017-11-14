@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 class CertificateCreator(object):
 
-	def __init__(self, dataJson, settingsJson=None, qr = None):
+	def __init__(self, dataJson=None, settingsJson=None, qr = None):
 		self.setDefault()
 		self.__data = None
 		if (dataJson is not None):
