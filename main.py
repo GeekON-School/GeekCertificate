@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-#import certificate
+
 
 import json
 import os
@@ -27,9 +27,6 @@ class MainHandler (tornado.web.RequestHandler):
 		teacher_font = ImageFont.truetype('HelveticaNeueCyr-Thin', 70)
 		data_return = {}
 		for course in data['courses']:
-			name = course ['name']
-			date = course ['date']
-			teachers = course ['teachers']
 			students = course ['students']
 
 			for student in students:
