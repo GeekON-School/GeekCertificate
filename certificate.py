@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 class CertificateCreator(object):
 
-	def __init__(self, dataJson=None, settingsJson=None, qr = None):
+	def __init__(self, dataJson=None, settingsJson=None, qr = True):
 		self.setDefault()
 		self.__data = None
 		if (dataJson is not None):
@@ -43,6 +43,7 @@ class CertificateCreator(object):
 		'''
 		with open(settingsJson) as settingsFile:
 			settings = json.load(settingsFile)
+			print (type(settings))
 			self.__templatePath = settings['path']
 			self.__nameXY = (settings['name']['x'], settings['name']['y'])
 			self.__font = settings['font']
