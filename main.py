@@ -34,11 +34,14 @@ class MainHandler (tornado.web.RequestHandler):
 				draw = ImageDraw.Draw(image)
 				image_width = image.size[0]
 				text_size = draw.textsize(student['name'], font=name_font)
-				x = (image_width / 2) - (text_size[0] / 2)
+				course_size = draw.textsize("О прохождении курса: «" + course['name'] + "»", font=course_font)
+				x_name = (image_width / 2) - (text_size[0] / 2)
+				x_course = (image_width / 2) - (course_size[0] / 2)
 				#drawing student's name
-				draw.text((x, 1070), student['name'], (0,0,0),font=name_font)
+				draw.text((x_name, 1070), student['name'], (0,0,0),font=name_font)
 				#drawing course's name
-				draw.text((1680, 1360), "«" + course['name'] + "»", (0, 0, 0), font=course_font)
+				draw.text((x_course, 1360), "О прохождении курса: «" + course['name'] + "»", (0, 0, 0),
+					  font=course_font)
 				draw.text((960, 2120), "«" + course['name'] + "»", (0, 0, 0), font=course_font_small)
 				#drawing mark
 				draw.text((3100, 2025), student['mark'], (97,167, 7), font=mark_font)
@@ -49,7 +52,10 @@ class MainHandler (tornado.web.RequestHandler):
 				image.save(os.path.join(output_folder, name) )
 
 				direct_url = 'https://cert.geekclass.ru/images/' +name
-				data_return[student['name'].replace(" ", "_")] = direct_url
+				data_return[student['id']] = {}
+				data_return[student['id']]['name'] = student ['name']
+				data_return[student['id']]['link'] = direct_url
+
 		print(json.dumps(data_return, ensure_ascii=False))
 		self.write(json.dumps(data_return, ensure_ascii=False))
 
