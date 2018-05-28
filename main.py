@@ -37,13 +37,13 @@ class MainHandler(tornado.web.RequestHandler):
                 draw = ImageDraw.Draw(image)
                 image_width = image.size[0]
                 text_size = draw.textsize(student['name'], font=name_font)
-                course_size = draw.textsize("О прохождении курса\n «" + course['name'] + "»", font=course_font)
+                course_size = draw.textsize("«" + course['name'] + "»", font=course_font)
                 x_name = (image_width / 2) - (text_size[0] / 2)
                 x_course = (image_width / 2) - (course_size[0] / 2)
                 # drawing student's name
                 draw.text((x_name, 1070), student['name'], (0, 0, 0), font=name_font)
                 # drawing course's name
-                draw.text((x_course, 1360), "О прохождении курса\n «" + course['name'] + "»", (0, 0, 0),
+                draw.text((x_course, 1492), "«" + course['name'] + "»", (0, 0, 0),
                           font=course_font)
                 draw.text((960, 2120), "«" + course['name'] + "»", (0, 0, 0), font=course_font_small)
                 # drawing mark
