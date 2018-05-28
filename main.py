@@ -45,7 +45,7 @@ class MainHandler(tornado.web.RequestHandler):
                 # drawing course's name
                 draw.text((x_course, 1480), "«" + course['name'] + "»", (0, 0, 0),
                           font=course_font)
-                draw.text((960, 2130), "«" + course['name'] + "»", (0, 0, 0), font=course_font_small)
+                draw.text((960, 2128), "«" + course['name'] + "»", (0, 0, 0), font=course_font_small)
                 # drawing mark
                 draw.text((3100, 2025), student['mark'], (97, 167, 7), font=mark_font)
                 # drawing teacher
