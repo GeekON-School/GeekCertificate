@@ -25,8 +25,8 @@ class MainHandler(tornado.web.RequestHandler):
                                      "images")
         name_font = ImageFont.truetype(font_type, 170)
         mark_font = ImageFont.truetype(font_type, 150)
-        course_font = ImageFont.truetype('HelveticaNeueCyr-Thin.ttf', 110)
-        course_font_small = ImageFont.truetype('HelveticaNeueCyr-Thin.ttf', 70)
+        course_font = ImageFont.truetype('HelveticaNeueCyr-Thin.ttf', 105)
+        course_font_small = ImageFont.truetype('HelveticaNeueCyr-Thin.ttf', 65)
         teacher_font = ImageFont.truetype('HelveticaNeueCyr-Thin.ttf', 70)
         data_return = {}
         for course in data['courses']:
@@ -43,7 +43,7 @@ class MainHandler(tornado.web.RequestHandler):
                 # drawing student's name
                 draw.text((x_name, 1070), student['name'], (0, 0, 0), font=name_font)
                 # drawing course's name
-                draw.text((x_course, 1492), "«" + course['name'] + "»", (0, 0, 0),
+                draw.text((x_course, 1480), "«" + course['name'] + "»", (0, 0, 0),
                           font=course_font)
                 draw.text((960, 2120), "«" + course['name'] + "»", (0, 0, 0), font=course_font_small)
                 # drawing mark
