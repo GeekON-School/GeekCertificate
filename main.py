@@ -14,17 +14,19 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 class MainHandler (tornado.web.RequestHandler):
+	def get(self):
+		self.write("working")
 	def post(self):
 		data = tornado.escape.json_decode(self.request.body)
 		path = 'gekkon_template.jpg'
-		font_type = 'HelveticaNeueCyr-Medium_0.ttf'
+		font_type = 'HelveticaNeueCyr-Medium.ttf'
 		output_folder = os.path.join(os.path.dirname(os.path.realpath(__file__)),
 					      "images")
 		name_font = ImageFont.truetype(font_type, 170)
 		mark_font = ImageFont.truetype(font_type, 150)
-		course_font = ImageFont.truetype('HelveticaNeueCyr-Thin', 110)
-		course_font_small = ImageFont.truetype('HelveticaNeueCyr-Thin', 70)
-		teacher_font = ImageFont.truetype('HelveticaNeueCyr-Thin', 70)
+		course_font = ImageFont.truetype('HelveticaNeueCyr-Thin.ttf', 110)
+		course_font_small = ImageFont.truetype('HelveticaNeueCyr-Thin.ttf', 70)
+		teacher_font = ImageFont.truetype('HelveticaNeueCyr-Thin.ttf', 70)
 		data_return = {}
 		for course in data['courses']:
 			students = course ['students']
@@ -68,7 +70,7 @@ settings = [
 	(r'/images/(.*)', tornado.web.StaticFileHandler, {'path': os.path.join(os.path.dirname(os.path.realpath(__file__)),'images')})
 ]
 app = tornado.web.Application(settings)
-app.listen(8085)
+app.listen(8088)
 tornado.ioloop.IOLoop.current().start()
 
 
