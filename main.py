@@ -49,7 +49,7 @@ class MainHandler(tornado.web.RequestHandler):
                 # drawing mark
                 draw.text((3100, 2025), student['mark'], (97, 167, 7), font=mark_font)
                 # drawing teacher
-                draw.text((356, 1973), "Бородин Ростислав", (0, 0, 0), font=teacher_font)
+                draw.text((356, 1973), "Ростислав Бородин", (0, 0, 0), font=teacher_font)
                 draw.text((356, 2210), course['teachers'][0]['name'], (0, 0, 0), font=teacher_font)
                 name = str(uuid.uuid4()) + '.jpg'
                 image.save(os.path.join(output_folder, name))
